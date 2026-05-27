@@ -4,7 +4,7 @@
 import { useMemo, useState } from "react"
 import { Header } from "@/components/layout/header"
 import { BottomNav } from "@/components/layout/bottom-nav"
-import { ChevronRight, LogIn, UserPlus, LogOut, Loader2, BookMarked, Bell, HelpCircle, CreditCard } from "lucide-react"
+import { ChevronRight, LogIn, UserPlus, LogOut, Loader2, BookMarked, Bell, HelpCircle, CreditCard, Clock, Star } from "lucide-react"
 import { Switch } from "@/components/ui/switch"
 import { useTheme } from "@/components/theme-provider"
 import { useUser, useAuth, useCollection, useFirestore } from "@/firebase"
@@ -64,10 +64,26 @@ export default function ProfilePage() {
     }
   }
 
+  // Statistiques simulées pour l'instant, mais prêtes pour le dynamisme
   const stats = [
-    { value: bookCount.toString(), label: "LIVRES" },
-    { value: "12h", label: "LUES" },
-    { value: "4.9", label: "NOTE" },
+    { 
+      value: bookCount.toString(), 
+      label: "LIVRES", 
+      icon: BookMarked,
+      color: "text-blue-600" 
+    },
+    { 
+      value: "12h", 
+      label: "TEMPS", 
+      icon: Clock,
+      color: "text-amber-500"
+    },
+    { 
+      value: "4.9", 
+      label: "SCORE", 
+      icon: Star,
+      color: "text-emerald-500"
+    },
   ]
 
   if (userLoading) {
@@ -83,7 +99,14 @@ export default function ProfilePage() {
       <Header />
       
       <div className="px-6 py-10 max-w-2xl mx-auto w-full space-y-8 animate-fade-in">
-        <h1 className="font-headline font-bold text-4xl text-[#0b3d91] dark:text-white">Profil</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="font-headline font-bold text-4xl text-[#0b3d91] dark:text-white">Profil</h1>
+          {user && (
+            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="rounded-full bg-secondary/50">
+              {theme === "dark" ? <Clock className="w-5 h-5 text-amber-500" /> : <Clock className="w-5 h-5" />}
+            </Button>
+          )}
+        </div>
 
         {!user ? (
           <div className="flex flex-col items-center justify-center py-16 px-6 rounded-[3rem] border border-slate-100 dark:border-border bg-slate-50/30 dark:bg-card/30 text-center space-y-8">
@@ -124,7 +147,10 @@ export default function ProfilePage() {
 
             <div className="grid grid-cols-3 gap-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="bg-white dark:bg-card border border-slate-100 dark:border-border p-4 rounded-[1.5rem] shadow-sm text-center flex flex-col items-center justify-center space-y-1">
+                <div key={stat.label} className="bg-white dark:bg-card border border-slate-100 dark:border-border p-4 rounded-[1.5rem] shadow-sm text-center flex flex-col items-center justify-center space-y-1 group hover:border-primary/20 transition-colors">
+                  <div className={`p-2 rounded-xl bg-secondary/30 mb-1`}>
+                    <stat.icon className={`w-4 h-4 ${stat.color}`} />
+                  </div>
                   <span className="font-headline font-bold text-xl text-[#0b3d91] dark:text-white">
                     {stat.label === "LIVRES" && purchasesLoading ? "..." : stat.value}
                   </span>
