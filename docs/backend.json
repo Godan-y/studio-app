@@ -1,0 +1,133 @@
+
+{
+  "entities": {
+    "Book": {
+      "title": "Livre",
+      "description": "Un livre disponible dans la bibliothèque numérique",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Le titre du livre"
+        },
+        "author": {
+          "type": "string",
+          "description": "L'auteur du livre"
+        },
+        "category": {
+          "type": "string",
+          "description": "La catégorie du livre"
+        },
+        "price": {
+          "type": "number",
+          "description": "Le prix du livre en FC"
+        },
+        "s3_cover_url": {
+          "type": "string",
+          "description": "Lien vers l'image de couverture"
+        },
+        "s3_pdf_path": {
+          "type": "string",
+          "description": "Chemin vers le fichier PDF dans S3"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Résumé du livre"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "chariow_id": {
+          "type": "string",
+          "description": "ID du produit Chariow pour le paiement"
+        },
+        "processing_status": {
+          "type": "string",
+          "enum": ["pending", "processing", "done", "error"]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["title", "price", "category"]
+    },
+    "Purchase": {
+      "title": "Achat",
+      "description": "Un enregistrement d'achat de livre",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "ID de l'utilisateur ayant acheté le livre"
+        },
+        "bookId": {
+          "type": "string",
+          "description": "ID du livre acheté"
+        },
+        "paymentId": {
+          "type": "string",
+          "description": "Identifiant de la transaction de paiement"
+        },
+        "paid": {
+          "type": "boolean",
+          "description": "Statut du paiement"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date de l'achat"
+        }
+      },
+      "required": ["userId", "bookId", "paid", "paymentId"]
+    },
+    "ReadingProgress": {
+      "title": "Progrès de lecture",
+      "description": "Suivi de la progression de lecture d'un utilisateur",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "bookId": { "type": "string" },
+        "lastPage": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Annotation": {
+      "title": "Annotation",
+      "description": "Notes ou surlignages d'un utilisateur sur un livre",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "bookId": { "type": "string" },
+        "page": { "type": "number" },
+        "content": { "type": "string" },
+        "type": { "type": "string", "enum": ["note", "highlight"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/livres/{bookId}": {
+      "schema": { "$ref": "#/entities/Book" },
+      "description": "Collection principale des livres"
+    },
+    "/purchases/{purchaseId}": {
+      "schema": { "$ref": "#/entities/Purchase" },
+      "description": "Collection des achats effectués par les utilisateurs"
+    },
+    "/reading_progress/{progressId}": {
+      "schema": { "$ref": "#/entities/ReadingProgress" },
+      "description": "Suivi de progression"
+    },
+    "/annotations/{annotationId}": {
+      "schema": { "$ref": "#/entities/Annotation" },
+      "description": "Notes et annotations"
+    }
+  }
+}

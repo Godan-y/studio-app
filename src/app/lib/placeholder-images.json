@@ -1,0 +1,59 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "book-1",
+      "description": "Business Strategy Book Cover",
+      "imageUrl": "https://picsum.photos/seed/book1/400/600",
+      "imageHint": "business book"
+    },
+    {
+      "id": "book-2",
+      "description": "Tech Innovation Book Cover",
+      "imageUrl": "https://picsum.photos/seed/book2/400/600",
+      "imageHint": "technology book"
+    },
+    {
+      "id": "book-3",
+      "description": "Self Improvement Book Cover",
+      "imageUrl": "https://picsum.photos/seed/book3/400/600",
+      "imageHint": "self development"
+    },
+    {
+      "id": "book-4",
+      "description": "Fiction Novel Cover",
+      "imageUrl": "https://picsum.photos/seed/book4/400/600",
+      "imageHint": "fiction novel"
+    },
+    {
+      "id": "book-5",
+      "description": "Startup Leadership Book Cover",
+      "imageUrl": "https://picsum.photos/seed/book5/400/600",
+      "imageHint": "leadership book"
+    },
+    {
+      "id": "book-6",
+      "description": "Coding Masterclass Book Cover",
+      "imageUrl": "https://picsum.photos/seed/book6/400/600",
+      "imageHint": "programming book"
+    },
+    {
+      "id": "category-business",
+      "description": "Business category icon",
+      "imageUrl": "https://picsum.photos/seed/catbus/200/200",
+      "imageHint": "business icon"
+    },
+    {
+      "id": "user-avatar",
+      "description": "User profile avatar",
+      "imageUrl": "https://picsum.photos/seed/user123/200/200",
+      "imageHint": "profile avatar"
+    },
+    {
+      "id": "gode-mukeng",
+      "description": "Photo de Gode Mukeng",
+      "imageUrl": "https://picsum.photos/seed/gode/400/400",
+      "imageHint": "professional man"
+    }
+  ]
+}
