@@ -35,6 +35,11 @@ export default function SupportPage() {
                     fill
                     className="object-cover"
                     priority
+                    onError={(e) => {
+                      // Fallback au cas où l'image n'est pas encore téléversée
+                      const target = e.target as HTMLImageElement;
+                      target.src = "https://picsum.photos/seed/gode/400/400";
+                    }}
                   />
                 </div>
               </div>
