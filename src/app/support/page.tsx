@@ -6,11 +6,10 @@ import { BottomNav } from "@/components/layout/bottom-nav"
 import { ArrowLeft, MessageCircle, Mail, MapPin, GraduationCap, Github, Linkedin, Twitter, Sparkles, Code2, Cpu } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
+import Image from "next/image"
 
 export default function SupportPage() {
-  const godePhoto = PlaceHolderImages.find(img => img.id === "gode-mukeng")?.imageUrl || "https://picsum.photos/seed/gode/400/400";
+  const godePhoto = "/images/gode.jpg";
 
   return (
     <main className="flex flex-col min-h-screen bg-background">
@@ -30,10 +29,12 @@ export default function SupportPage() {
               <div className="absolute inset-0 bg-primary/20 rounded-full scale-125 blur-2xl animate-pulse" />
               <div className="relative p-1 bg-gradient-to-tr from-[#0b3d91] to-[#c7a54b] rounded-[2.5rem] shadow-2xl overflow-hidden">
                 <div className="w-40 h-40 rounded-[2.2rem] border-4 border-white dark:border-background relative overflow-hidden bg-muted">
-                  <img 
+                  <Image 
                     src={godePhoto} 
                     alt="Gode Mukeng Mukanz" 
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    priority
                   />
                 </div>
               </div>
