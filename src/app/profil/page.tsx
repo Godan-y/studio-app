@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useMemo, useState } from "react"
@@ -203,7 +202,7 @@ export default function ProfilePage() {
 
         <div className="pt-10 text-center">
           <p className="text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase">
-            GM BIBLIO RDCONGO - V1.0
+            MAYELE - V1.0
           </p>
         </div>
       </div>

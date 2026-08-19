@@ -1,4 +1,3 @@
-
 "use client"
 
 import { use, useEffect, useState, useMemo, useCallback } from "react"
@@ -296,7 +295,7 @@ export default function ReaderPage({ params }: { params: Promise<{ id: string }>
             
             <div className="absolute inset-0 pointer-events-none opacity-[0.05] flex items-center justify-center rotate-[-45deg] z-10 overflow-hidden">
                <div className="text-4xl font-bold whitespace-nowrap uppercase tracking-[1em] select-none">
-                 {user?.email || 'LECTEUR PREMIUM'} - GM BIBLIO
+                 {user?.email || 'LECTEUR PREMIUM'} - MAYELE
                </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -37,7 +36,7 @@ export function AppSidebar() {
       await signInWithPopup(auth, provider)
       toast({
         title: "Connexion réussie",
-        description: "Bienvenue sur GM Biblio !",
+        description: "Bienvenue sur Mayele !",
       })
     } catch (error: any) {
       toast({
@@ -68,7 +67,7 @@ export function AppSidebar() {
             <BookMarked className="w-7 h-7" />
           </div>
           <div className="flex flex-col leading-none group-data-[collapsible=icon]:hidden">
-            <span className="font-headline font-bold text-xl tracking-tight text-[#0b3d91] dark:text-white">GM Biblio</span>
+            <span className="font-headline font-bold text-xl tracking-tight text-[#0b3d91] dark:text-white">Mayele</span>
             <span className="text-[10px] font-bold text-[#c7a54b] tracking-[0.2em] uppercase">RD Congo</span>
           </div>
         </Link>

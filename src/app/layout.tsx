@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { FirebaseClientProvider } from "@/firebase";
 
 export const metadata: Metadata = {
-  title: 'GM Biblio RDCongo - Bibliothèque Numérique Premium',
+  title: 'Mayele - Bibliothèque Numérique Premium',
   description: 'Vendez et téléchargez vos livres PDF en toute sécurité au Congo.',
 };
 

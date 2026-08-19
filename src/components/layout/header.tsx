@@ -1,4 +1,3 @@
-
 "use client"
 
 import { BookMarked, Bell, Moon, Sun } from "lucide-react"
@@ -15,7 +14,7 @@ export function Header() {
           <BookMarked className="w-6 h-6" />
         </div>
         <div className="flex flex-col leading-none">
-          <span className="font-headline font-bold text-lg tracking-tight text-primary">GM Biblio</span>
+          <span className="font-headline font-bold text-lg tracking-tight text-primary">Mayele</span>
           <span className="text-[10px] font-bold text-accent tracking-[0.2em] uppercase">RD Congo</span>
         </div>
       </Link>
