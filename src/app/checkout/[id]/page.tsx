@@ -1,7 +1,8 @@
+
 "use client"
 
 import { use, useState, useMemo } from "react"
-import { ArrowLeft, ShieldCheck, CheckCircle2, Download, Loader2 } from "lucide-react"
+import { ArrowLeft, ShieldCheck, CheckCircle2, Plus, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -61,9 +62,6 @@ export default function CheckoutPage({ params }: { params: Promise<{ id: string 
 
       const data = await response.json();
       if (data.url) {
-        window.location.href = data.url;
-        
-        // Enregistrer le téléchargement
         if (user && db && book) {
           addDoc(collection(db, "purchases"), {
             userId: user.uid,
@@ -76,7 +74,7 @@ export default function CheckoutPage({ params }: { params: Promise<{ id: string 
 
         setIsSuccess(true);
         toast({
-          title: "Téléchargement démarré",
+          title: "Livre ajouté",
           description: "Le livre a été ajouté à votre bibliothèque.",
         });
       }
@@ -118,12 +116,12 @@ export default function CheckoutPage({ params }: { params: Promise<{ id: string 
         </div>
         <h1 className="font-headline font-bold text-3xl mb-4">Prêt à lire !</h1>
         <p className="text-muted-foreground mb-10 leading-relaxed">
-          Le téléchargement de <strong>{book.title}</strong> a commencé. Bonne lecture !
+          <strong>{book.title}</strong> a été ajouté à votre espace. Bonne lecture !
         </p>
         <div className="flex flex-col gap-4 w-full max-w-sm">
-          <Link href="/" passHref className="w-full">
+          <Link href={`/read/${book.id}`} passHref className="w-full">
             <Button size="lg" className="w-full rounded-2xl bg-[#0b3d91] text-white h-14 text-lg font-bold">
-              Retour au catalogue
+              Lire maintenant
             </Button>
           </Link>
           <Link href="/mes-livres" passHref className="w-full">
@@ -142,7 +140,7 @@ export default function CheckoutPage({ params }: { params: Promise<{ id: string 
         <Link href={`/books/${id}`}>
           <ArrowLeft className="w-6 h-6" />
         </Link>
-        <h1 className="font-headline font-bold text-xl">Prêt au téléchargement</h1>
+        <h1 className="font-headline font-bold text-xl">Confirmation d'ajout</h1>
       </div>
 
       <div className="px-6 py-8 space-y-10 animate-fade-in max-w-2xl mx-auto w-full">
@@ -169,9 +167,9 @@ export default function CheckoutPage({ params }: { params: Promise<{ id: string 
             {isDownloading ? (
               <Loader2 className="w-6 h-6 animate-spin" />
             ) : (
-              <Download className="w-6 h-6" />
+              <Plus className="w-6 h-6" />
             )}
-            {isDownloading ? "Récupération du fichier..." : "Télécharger maintenant"}
+            {isDownloading ? "Traitement..." : "Ajouter dans mes livres"}
           </Button>
           
           <div className="p-5 rounded-[2rem] bg-slate-50 dark:bg-card/30 border border-slate-100 dark:border-border flex gap-4">
@@ -179,7 +177,7 @@ export default function CheckoutPage({ params }: { params: Promise<{ id: string 
               <ShieldCheck className="w-5 h-5 text-green-600" />
             </div>
             <p className="text-[11px] leading-relaxed text-slate-500 italic font-medium">
-              Accès instantané. Votre livre sera téléchargé au format PDF haute résolution et enregistré dans votre bibliothèque.
+              Accès instantané. Ce livre sera immédiatement disponible dans votre espace de lecture personnel une fois ajouté.
             </p>
           </div>
         </div>

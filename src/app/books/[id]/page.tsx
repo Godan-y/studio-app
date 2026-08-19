@@ -7,13 +7,13 @@ import { BottomNav } from "@/components/layout/bottom-nav"
 import { mapFirestoreDocToBook } from "@/lib/books"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ChevronRight, Share2, Download, Loader2, BookOpen } from "lucide-react"
+import { ArrowLeft, ChevronRight, Share2, Plus, Loader2, BookOpen } from "lucide-react"
 import { useDoc, useUser, useFirestore, useCollection } from "@/firebase"
 import { doc, collection, addDoc, serverTimestamp, query, where } from "firebase/firestore"
 import { Skeleton } from "@/components/ui/skeleton"
 import { toast } from "@/hooks/use-toast"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { SimilarBooks } from "@/components/books/similar-books"
 
@@ -24,11 +24,9 @@ export default function BookDetailPage({ params }: { params: Promise<{ id: strin
   const router = useRouter()
   const [isProcessing, setIsProcessing] = useState(false)
 
-  // Récupérer les détails du livre
   const bookRef = useMemo(() => (db && id ? doc(db, "livres", id) : null), [db, id])
   const { data: bookDoc, loading: bookLoading } = useDoc(bookRef)
 
-  // Vérifier si l'utilisateur possède déjà le livre
   const purchaseQuery = useMemo(() => {
     if (!db || !user || !id) return null;
     return query(collection(db, "purchases"), where("userId", "==", user.uid), where("bookId", "==", id));
@@ -39,7 +37,6 @@ export default function BookDetailPage({ params }: { params: Promise<{ id: strin
   const book = useMemo(() => (bookDoc ? mapFirestoreDocToBook(bookDoc) : null), [bookDoc])
 
   const handleAction = async () => {
-    // Si déjà acheté, on redirige directement vers le lecteur
     if (isPurchased) {
       router.push(`/read/${id}`);
       return;
@@ -157,9 +154,9 @@ export default function BookDetailPage({ params }: { params: Promise<{ id: strin
             ) : isPurchased ? (
               <BookOpen className="w-4 h-4" />
             ) : (
-              <Download className="w-4 h-4" />
+              <Plus className="w-4 h-4" />
             )}
-            {isPurchased ? "Lire maintenant" : "Télécharger"}
+            {isPurchased ? "Lire maintenant" : "Ajouter dans mes livres"}
           </Button>
         </div>
 

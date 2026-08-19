@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Book } from "@/lib/books"
 import { Button } from "@/components/ui/button"
-import { Eye, Download, Loader2, Calendar, BookOpen } from "lucide-react"
+import { Eye, Plus, Loader2, Calendar, BookOpen } from "lucide-react"
 import { useState, useEffect, useMemo } from "react"
 import { toast } from "@/hooks/use-toast"
 import { format } from "date-fns"
@@ -48,7 +48,6 @@ export function BookCard({ book, isPurchased = false }: BookCardProps) {
     e.preventDefault();
     e.stopPropagation();
     
-    // Si déjà acheté, on redirige vers le lecteur
     if (isPurchased) {
       router.push(`/read/${book.id}`);
       return;
@@ -79,7 +78,6 @@ export function BookCard({ book, isPurchased = false }: BookCardProps) {
       const data = await response.json();
 
       if (data.url) {
-        // Enregistrer dans "Mes Livres" si l'utilisateur est connecté
         if (user && db) {
           addDoc(collection(db, "purchases"), {
             userId: user.uid,
@@ -158,9 +156,9 @@ export function BookCard({ book, isPurchased = false }: BookCardProps) {
             ) : isPurchased ? (
               <BookOpen className="w-4 h-4" />
             ) : (
-              <Download className="w-4 h-4" />
+              <Plus className="w-4 h-4" />
             )}
-            {isPurchased ? "Lire" : "Télécharger"}
+            {isPurchased ? "Lire" : "Ajouter"}
           </Button>
           <Link href={`/books/${book.id}`} passHref>
             <Button variant="outline" size="icon" className="w-10 h-10 rounded-full bg-secondary/50 border-none hover:bg-secondary flex items-center justify-center shrink-0">
