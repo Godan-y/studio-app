@@ -63,7 +63,7 @@ export default function ProfilePage() {
     }
   }
 
-  // Statistiques simulées pour l'instant, mais prêtes pour le dynamisme
+  // Statistiques simulées
   const stats = [
     { 
       value: bookCount.toString(), 

@@ -8,7 +8,7 @@ import { FirebaseClientProvider } from "@/firebase";
 
 export const metadata: Metadata = {
   title: 'Mayele - Bibliothèque Numérique Premium',
-  description: 'Vendez et téléchargez vos livres PDF en toute sécurité au Congo.',
+  description: 'Votre accès privilégié au savoir et à la culture en RDC. Découvrez, gérez et lisez vos livres préférés en toute sécurité.',
 };
 
 export default function RootLayout({

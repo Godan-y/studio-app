@@ -36,7 +36,6 @@ export default function SupportPage() {
                     className="object-cover"
                     priority
                     onError={(e) => {
-                      // Fallback au cas où l'image n'est pas encore téléversée
                       const target = e.target as HTMLImageElement;
                       target.src = "https://picsum.photos/seed/gode/400/400";
                     }}
@@ -68,7 +67,7 @@ export default function SupportPage() {
               </div>
               
               <p className="text-base font-medium leading-relaxed opacity-95 relative z-10">
-                Je conçois des applications modernes, des systèmes intelligents et des automatisations avancées qui transforment les idées en produits digitaux performants et scalables.
+                Je conçois des applications modernes comme Mayele, des systèmes intelligents et des automatisations avancées qui transforment les idées en produits digitaux performants.
               </p>
               
               <div className="flex items-center gap-3 text-accent mt-4">
@@ -77,7 +76,7 @@ export default function SupportPage() {
               </div>
               
               <p className="text-sm leading-relaxed relative z-10 opacity-90 italic">
-                "J'aide les entrepreneurs, startups et entreprises à automatiser leurs processus, lancer leurs produits plus rapidement et exploiter la puissance de l'intelligence artificielle."
+                "J'aide les entrepreneurs et entreprises à automatiser leurs processus, lancer leurs produits plus rapidement et exploiter la puissance de l'IA."
               </p>
               
               <div className="pt-6 border-t border-white/10 flex items-center gap-3 text-xs font-bold">
@@ -128,7 +127,7 @@ export default function SupportPage() {
 
         <div className="pt-12 text-center space-y-6">
           <p className="text-[10px] text-slate-400 font-bold tracking-[0.3em] uppercase">
-            Propulsé par Gode Mukeng Automation
+            MAYELE - Propulsé par Gode Mukeng Automation
           </p>
           <div className="flex justify-center gap-8">
             <Link href="#" className="text-slate-300 hover:text-[#0b3d91] transition-all hover:scale-110"><Github className="w-6 h-6" /></Link>

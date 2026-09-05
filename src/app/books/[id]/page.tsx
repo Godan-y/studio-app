@@ -1,4 +1,3 @@
-
 "use client"
 
 import { use, useMemo, useState } from "react"
@@ -60,7 +59,7 @@ export default function BookDetailPage({ params }: { params: Promise<{ id: strin
 
       if (data.url) {
         if (user && db && !isPurchased) {
-          addDoc(collection(db, "purchases"), {
+          await addDoc(collection(db, "purchases"), {
             userId: user.uid,
             bookId: id,
             paid: true,
@@ -69,7 +68,7 @@ export default function BookDetailPage({ params }: { params: Promise<{ id: strin
           });
         }
 
-        toast({ title: "Livre prêt", description: "Ouverture du lecteur..." });
+        toast({ title: "Livre ajouté", description: "Ouverture du lecteur..." });
         router.push(`/read/${id}`);
       }
     } catch (error: any) {

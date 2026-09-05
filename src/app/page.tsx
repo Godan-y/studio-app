@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useMemo } from "react"
@@ -53,13 +54,13 @@ export default function HomePage() {
 
       <div className="px-6 md:px-12 py-6 space-y-10 max-w-7xl mx-auto w-full animate-fade-in">
         <header className="space-y-1">
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Bibliothèque numérique</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Mayele - Bibliothèque numérique</p>
           <div className="flex items-baseline gap-2">
             <h1 className="font-headline font-bold text-4xl text-[#0b3d91] dark:text-white">Bonjour</h1>
             <span className="text-3xl">👋</span>
           </div>
-          <h2 className="font-headline font-bold text-3xl text-[#0b3d91] dark:text-white">Découvrez de nouveaux livres</h2>
-          <p className="text-sm text-slate-400">La bibliothèque numérique de la RDC</p>
+          <h2 className="font-headline font-bold text-3xl text-[#0b3d91] dark:text-white">Bienvenue sur Mayele</h2>
+          <p className="text-sm text-slate-400">L'excellence de la lecture numérique en RDC</p>
         </header>
 
         <div className="relative group">
@@ -73,7 +74,7 @@ export default function HomePage() {
         <section className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#0b3d91] via-[#0b3d91] to-[#1e4ea3] p-8 md:p-12 text-white shadow-2xl">
           <div className="relative z-10 max-w-md space-y-6">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[10px] font-bold uppercase tracking-widest border border-white/20">
-              Offre du moment
+              Offre Mayele
             </span>
             <div className="space-y-2">
               <h3 className="font-headline font-bold text-4xl leading-tight">Bibliothèque illimitée</h3>
@@ -137,7 +138,7 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="text-center py-10 text-muted-foreground">
-              Aucun livre trouvé dans la bibliothèque.
+              Aucun livre trouvé dans la bibliothèque Mayele.
             </div>
           )}
         </section>

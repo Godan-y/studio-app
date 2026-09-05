@@ -1,4 +1,3 @@
-
 "use client"
 
 import Image from "next/image"
@@ -79,7 +78,7 @@ export function BookCard({ book, isPurchased = false }: BookCardProps) {
 
       if (data.url) {
         if (user && db) {
-          addDoc(collection(db, "purchases"), {
+          await addDoc(collection(db, "purchases"), {
             userId: user.uid,
             bookId: book.id,
             paid: true,

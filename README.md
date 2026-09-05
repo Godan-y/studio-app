@@ -1,10 +1,9 @@
-# Firebase Studio
+# Mayele - Bibliothèque Numérique
 
-This is a NextJS starter in Firebase Studio.
+Mayele est une plateforme premium de bibliothèque numérique permettant d'accéder à des ouvrages en RDC.
 
-To get started, take a look at src/app/page.tsx.
-👉 Pour les prochaines modifications, tu auras simplement besoin de :
-
-git add .
-git commit -m "Mise à jour du projet"
-git push
+## Fonctionnalités
+- Lecture sécurisée de PDF avec rendu haute performance.
+- Mode sombre/clair et thèmes de lecture (Sépia).
+- Suivi de progression automatique.
+- Annotations et notes personnelles.
